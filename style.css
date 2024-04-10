@@ -6,10 +6,31 @@
     box-sizing: border-box;
 }
 
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    background: url(assets/bg-mobile.jpg) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
     font-family: 'Inter', sans-serif;
-    color: white;
+    color: var(--text-color);
 }
 
 #container {
@@ -23,7 +44,10 @@ body {
 }
 
 #profile img {
-    width: 112px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--stroke-color);
     margin: auto;
 }
 
@@ -42,15 +66,15 @@ ul {
 }
 
 ul li a {
-    color: white;
+    color: var(--text-color);
     font-weight: 500;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px 24px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
     border-radius: 8px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -58,8 +82,8 @@ ul li a {
 }
 
 ul li a:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid white
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
 }
 
 #social-links {
@@ -74,13 +98,14 @@ ul li a:hover {
     align-items: center;
     justify-content: center;
     padding: 16px;
-    color: white;
+    color: var(--text-color);
     transition: background .3s;
     border-radius: 50%;
 }
 
 #social-links a:hover{
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--highlight-color);
+    transition: 0.3s;
 }
 
 footer {
@@ -90,5 +115,5 @@ footer {
 }
 
 footer a {
-    color: white;
+    color: var(--text-color);
 }
